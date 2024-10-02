@@ -20,6 +20,10 @@ const Timer: React.FC<ITimerProps> = ({ title, endTime, elapsedTime }) => {
         throw new Error("endTime can't be more than 59:59 (3599 seconds)")
     }
 
+    if (endTime < 0 || currentTime < 0) {
+        throw new Error("Time value can't be negative")
+    }
+
     function formatTime(time: number) {
         const minutes = Math.floor(time / 60);
         const seconds = time % 60;
@@ -27,7 +31,7 @@ const Timer: React.FC<ITimerProps> = ({ title, endTime, elapsedTime }) => {
     };
 
     useEffect(() => {
-        let interval: number;
+        let interval: NodeJS.Timeout;
 
         if (isEnabled) {
             interval = setInterval(() => {
@@ -59,8 +63,8 @@ const Timer: React.FC<ITimerProps> = ({ title, endTime, elapsedTime }) => {
                 <button onClick={() => {
                     if (currentTime === endTime) setCurrentTime(0);
                     setIsEnabled(true)
-                }}>Start</button>
-                <button onClick={() => setIsEnabled(false)}>Pause</button>
+                }} disabled={isEnabled}>Start</button>
+                <button onClick={() => setIsEnabled(false)} disabled={!isEnabled}>Pause</button>
                 <button onClick={() => {
                     setCurrentTime(0);
                     setIsEnabled(false);
