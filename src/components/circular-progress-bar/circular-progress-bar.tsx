@@ -14,7 +14,8 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     maximum = 100,
     children
 }) => {
-    const [size, setSize] = useState(0) // To dynamically adjust size
+    const strokeWidth = 8
+    const [size, setSize] = useState(strokeWidth)
     const containerRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
@@ -37,8 +38,7 @@ const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         }
     }, [])
 
-    const strokeWidth = 8 // width of the stroke
-    const normalizedRadius = (size / 2) - strokeWidth / 2 // adjust the radius for stroke width
+    const normalizedRadius = (size / 2) - strokeWidth / 2
     const circumference = normalizedRadius * 2 * Math.PI
 
     // Ensure progress is clamped between minimum and maximum
