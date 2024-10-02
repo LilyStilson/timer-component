@@ -1,0 +1,38 @@
+:root {
+    --border-radius: 25px;
+    --background: #26273d;
+    --progress-bg: #545576;
+    --progress-fg: #67cb88;
+    --progress-fg-complete: #cb6767;
+    --foreground: #a2a4cb;
+    --header: #FFF;
+    --btn-outline: #606170;
+}
+
+.timer h1, .timer h4 {
+    margin: 0;
+    font-weight: initial;
+}
+.timer {
+    padding: 40px;
+    color: var(--foreground);
+    background-color: var(--background);
+    border-radius: var(--border-radius);
+}
+.timer-progress .content > *:nth-child(2) {
+    color: #FFF;
+}
+.timer-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+.timer-buttons > button {
+    all: unset;
+    padding: 8px 15px;
+    border: 1px solid var(--btn-outline);
+    border-radius: var(--border-radius);
+}
+.timer-buttons > button:hover {
+    border-color: var(--header);
+}

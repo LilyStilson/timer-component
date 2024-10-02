@@ -1,0 +1,26 @@
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    /* position: relative; */
+    white-space: nowrap;
+}
+  
+.marquee-text {
+    display: inline-block;
+    position: absolute;
+    will-change: transform;
+}
+  
+.scroll {
+    animation: bounce 5s infinite alternate-reverse ease-in-out;
+}
+  
+@keyframes bounce {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(calc(-100%));
+    }
+}
+  
