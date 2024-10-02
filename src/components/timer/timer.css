@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 :root {
+    --font-family: "Open Sans", system-ui, sans-serif;
+
     --border-radius: 25px;
     --background: #26273d;
     --progress-bg: #545576;
@@ -12,6 +16,7 @@
 .timer h1, .timer h4 {
     margin: 0;
     font-weight: initial;
+    font-family: var(--font-family);
 }
 .timer {
     padding: 40px;
@@ -32,7 +37,16 @@
     padding: 8px 15px;
     border: 1px solid var(--btn-outline);
     border-radius: var(--border-radius);
+    font-family: var(--font-family);
 }
-.timer-buttons > button:hover {
+.timer-buttons > button:active {
+    color: var(--foreground);
+}
+.timer-buttons > button:disabled {
+    color: gray;
+    border-color: gray;
+    cursor: not-allowed;
+}
+.timer-buttons > button:hover:not(:disabled) {
     border-color: var(--header);
 }
