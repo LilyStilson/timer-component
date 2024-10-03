@@ -1,0 +1,52 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main", "dev/actions" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: "Checkout repo"
+        uses: actions/checkout@v4
+
+      - name: "Clone release"
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: release
+          path: release
+
+      - name: "Setup Node"
+        uses: actions/setup-node@4
+
+      - name: "Install dependencies"
+        uses: bahmutov/npm-install@1
+
+      - name: Build
+        run: npm run build
+
+      - name: Build Storybook
+        run: npm run build-storybook
+      
+      - run: |
+          rsync -a timer-component/dist/* ./release
+          rsync -a timer-component/storybook-static/* ./release/storybook
+
+      - name: Publish
+        uses: EndBug/add-and-commit@v9
+        with:
+          cwd: "release"
+          add: "."
+          author_name: github-actions[bot]
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: "Automatic commit, run id: ${{ github.run_id }}"
+          push: true
+      
