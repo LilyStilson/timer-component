@@ -32,6 +32,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: "Remove package-lock.json (npm/cli#4828)"
+        run: rm -rf timer-component/package-lock.json
+
       - name: "Install dependencies"
         run: npm install --ignore-platform
 
