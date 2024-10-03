@@ -4,10 +4,14 @@ import Timer from "./components/timer/timer"
 function App() {
     return (
         <div className="flex-container">
-            <Timer title="Title from Props" endTime={10} />
-            {/* <Timer title="This is a very long title that may not fit inside the circle" endTime={10} /> */}
-            <Timer title="With initial time" elapsedTime={15} endTime={60} />
-            <Timer title="Max time" endTime={3599} />
+            <h1>Timer component</h1>
+
+            <Timer title="Timer title" endTime={30} />
+
+                <a href="/storybook" target="_blank" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", textDecoration: "none" }}>
+                    <span>Check out on</span> 
+                    <img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg" style={{ height: "32px" }} />
+                </a>
         </div>
     )
 }
