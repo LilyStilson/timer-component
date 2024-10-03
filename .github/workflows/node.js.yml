@@ -10,9 +10,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ["22.x"]
     permissions:
       contents: write
 
@@ -27,22 +24,17 @@ jobs:
           ref: release
           path: release
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: "Remove package-lock.json (npm/cli#4828)"
-        run: rm -rf timer-component/package-lock.json
+      - name: "Setup Bun"
+        uses: oven-sh/setup-bun@v2
 
       - name: "Install dependencies"
-        run: npm install --ignore-platform
+        run: bun install
 
       - name: Build
-        run: npm run build
+        run: bun run build
 
       - name: Build Storybook
-        run: npm run build-storybook
+        run: bun run build-storybook
       
       - run: |
           rsync -a timer-component/dist/* ./release
