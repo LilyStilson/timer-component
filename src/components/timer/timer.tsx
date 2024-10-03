@@ -2,12 +2,18 @@ import { useEffect, useState } from "react"
 import "./timer.css"
 import CircularProgressBar from "../circular-progress-bar/circular-progress-bar"
 
+/**
+ * Timer props
+ */
 export interface ITimerProps {
     title: string
     endTime: number
     elapsedTime?: number
 }
 
+/**
+ * Simple Timer component
+ */
 const Timer: React.FC<ITimerProps> = ({ title, endTime, elapsedTime }) => {
     const [currentTime, setCurrentTime] = useState(elapsedTime ?? 0),
         [isEnabled, setIsEnabled] = useState(false)

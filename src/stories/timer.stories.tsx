@@ -16,21 +16,34 @@ const meta = {
     ],
     title: "Components/Timer",
     parameters: {
-        layout: ['centered'],
+        layout: ['centered']
     },
     tags: ["autodocs"],
     argTypes: {
         title: { 
             control: "text", 
-            type: "string" 
+            type: {
+                name: "string",
+                required: true
+            },
+            description: "The title of the timer",
         },
         endTime: { 
-            control: "number", 
-            type: "number" 
+            control: {
+                type: "number",
+                min: 0,
+                max: 3599,
+            },
+            type: {
+                name: "number",
+                required: true
+            },
+            description: "End time of the timer in seconds",
         },
         elapsedTime: { 
             control: "number", 
-            type: "number"
+            type: "number",
+            description: "Initial time of the timer in seconds",
         },
     }
 } satisfies Meta<typeof Timer>
