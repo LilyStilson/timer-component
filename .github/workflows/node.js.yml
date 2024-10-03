@@ -38,11 +38,11 @@ jobs:
       
       - name: Copy production build
         run: |
-          rsync -a timer-component/dist/* ./release
+          rsync -a dist/* ./release
           
       - name: Copy storybook
         run: |
-          rsync -a timer-component/storybook-static/* ./release/storybook
+          rsync -a storybook-static/* ./release/storybook
 
       - name: Publish
         uses: EndBug/add-and-commit@v9
