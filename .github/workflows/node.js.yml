@@ -36,8 +36,12 @@ jobs:
       - name: Build Storybook
         run: bun run build-storybook
       
-      - run: |
+      - name: Copy production build
+        run: |
           rsync -a timer-component/dist/* ./release
+          
+      - name: Copy storybook
+        run: |
           rsync -a timer-component/storybook-static/* ./release/storybook
 
       - name: Publish
