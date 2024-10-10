@@ -6,13 +6,18 @@ import CircularProgressBar from "../circular-progress-bar/circular-progress-bar"
  * Timer props
  */
 export interface ITimerProps {
+    /** Timer title */
     title: string
+    /** End time in seconds */
     endTime: number
+    /** Elapsed time in seconds, default is 0 */
     elapsedTime?: number
 }
 
 /**
  * Simple Timer component
+ * @param {ITimerProps} props Timer properties
+ * @returns {React.FC<ITimerProps>} Timer component
  */
 const Timer: React.FC<ITimerProps> = ({ title, endTime, elapsedTime }) => {
     const [currentTime, setCurrentTime] = useState(elapsedTime ?? 0),
