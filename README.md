@@ -3,7 +3,7 @@ A simple timer component made in React.
 
 [Try it out](https://timer-component.pages.dev/) 
 
-<a href="https://timer-component.pages.dev/storybook)"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg"></img></a>
+<a href="https://timer-component.pages.dev/storybook"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg"></img></a>
 
 ## Features
 - Timer title
