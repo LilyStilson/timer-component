@@ -7,14 +7,7 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
-    {
-        name: 'storybook-addon-jsdoc-to-mdx',
-        options: {
-            folderPaths: ['./src/'], 
-            extensions: ['ts', 'js', 'tsx', 'jsx']
-        }
-    }
+    "@storybook/addon-interactions"
   ],
   framework: {
     name: "@storybook/react-vite",
