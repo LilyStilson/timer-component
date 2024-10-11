@@ -11,6 +11,15 @@ A simple timer component made in React.
 - Initial time
 - Zero dependencies
 
+## Usage
+```jsx
+<Timer title="Title from Props" endTime={152} elapsedTime={13} />
+```
+Will produce the following component:
+
+<img src="https://github.com/user-attachments/assets/6794e49b-9953-43aa-b849-edcac91201ad" height="320px"></img>
+
+
 ## Known issues
 - If a very long title is set - its going to wrap within the progress circle.<br>
   *Implementing scrollable title (marquee) was not in the task specifications, so...*
